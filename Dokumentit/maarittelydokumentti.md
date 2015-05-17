@@ -1,31 +1,53 @@
-#M‰‰rittelydokumentti: 15-puzzle solver
+#15-puzzle solver m√§√§rittelydokumentti
+>
+##Ongelma
+[15-peli](http://fi.wikipedia.org/wiki/15-peli)
 
-####Ongelma
+Ongelmana on pysty√§ ratkaisemaan 15-peli mahdollisimman v√§hill√§ siirroilla, sek√§ tunnistaa aikaisessa vaiheessa laudat jotka eiv√§t ole ohjelman ratkaistavissa. 
 
-####Algoritmit ja tietorakenteet
+>"Jokainen mahdollinen tapa, jolla laatat voidaan sijoittaa kehykseen, vastaa yht√§ 16-alkioisen joukon permutaatiota. T√§llaisia tapoja on kaikkiaan 16! = 20 922 789 888 000 (yli 20 biljoonaa), mutta vain puolet n√§ist√§ asetelmista on sellaisia, ett√§ teht√§v√§ on ratkaistavissa, tehtiinp√§ kuinka monta siirtoa tahansa." [1]
 
-#####Algoritmit v.1:
-Ratkaisualgoritmi
+##Algoritmit ja tietorakenteet
 
-Yl‰rivi
-1. Siirret‰‰n numerot 1, 2 ja 3 omille paikoilleen ruutuihin 1, 2 ja 3 niin, ett‰ ne saapuvat ruutuihinsa alakautta tai vasemmalta.
-2. Siiret‰‰n numero 4 oman paikkansa alapuolelle (ruutu 8)
-3. Siirret‰‰n numero 2 yksi ruutu alasp‰in (ruutu 6) ja numero 3 yksi ruutu vasemmalle (ruutu 2). Siiret‰‰n ruudussa 4 oleva numero ruutuun 3 ja siirret‰‰n numero 4 omaan ruutuunsa ( ruutu 4).
-4. Pyˆritet‰‰n numerot 2 ja 3 omiin ruutuihinsa, ensin 3 ja sitten 2. Yl‰rivi on nyt j‰rjestyksess‰ 1, 2, 3 ja 4
+**Algoritmit:**
 
-Vasen pystyrivi
-1. Numero 1 on jo omalla paikallaan. Siirret‰‰n numerot 5 ja 9 omille paikoilleen ruutuihin 5 ja 9
-2. Siiret‰‰n numero 13 oman ruutunsa viereen (ruutu 14)
-3. Siiret‰‰n numero 9 yksi ruutu oikealle (ruutu 10) ja numero 5 yksi ruutu alasp‰in
+* Inversioiden laskeminen.
+>"Inversioksi lasketaan jokainen kahden numero¬≠laatan pari, jossa suurempi luku on ennen pienemp√§√§. Mik√§li tyhj√§ ruutu on alimmalla rivill√§, asetelma on ratkaistavissa, jos ja vain jos inversioiden lukum√§√§r√§ on parillinen" [1]
 
-L‰htˆtilanne:
-K‰yd‰‰n 
+* [Iterative Deepening A* (IDA*) -algotritmi](http://en.wikipedia.org/wiki/Iterative_deepening_A*) [3][4]
 
-Tietorakenteet:
+* [Manhattan Distance](http://heuristicswiki.wikispaces.com/Manhattan+Distance)
 
-####Syˆtteet
+**Tietorakenteet:**
 
-####Aika- ja tilavaativuudet
+* Lista
+* PrirorityQueue
 
-####L‰hteet
-Ratkaisualgoritmi: http://www.wikihow.com/Solve-a-Fifteen-Puzzle
+Inversioiden laskemisella voimme tunnistaa pelilaudan, joka ei ole ratkaistavissa. IDA* on polunhaku -algoritmi, jolla pyrit√§√§n l√∂yt√§m√§√§n numeron reitti sille m√§√§r√§ttyyn ruutuun mahdollisimman v√§hill√§ siirroilla. Algoritmin parina k√§ytet√§√§n "Manhattan Distance" heuristiikkaa, jolla pystyt√§√§n m√§√§ritt√§m√§√§n lyhyin matka kahden ruudun v√§lill√§ ja m√§√§ritt√§m√§√§n siirtojen "hintaa".[5][6] Muita heuristiikkoja tullaan mahdollisesti tarkastelemaan ja vertailemaan.
+
+
+##Sy√∂tteet
+
+Ohjelmalle voidaan antaa sy√∂tteen√§ pelilauta joka halutaan ratkaista. Sit√§ voidaan my√∂s pyyt√§√§ generoimaan oma lauta, joko t√§ysin mielivaltaisessa j√§rjestyksess√§ oleva tai sellainen, jonka se pystyy ratkaisemaan.
+
+##Aika- ja tilavaativuudet
+
+**IDA*** 
+Tila: O(1) Aika: Exp [7]
+
+T√§ydennet√§√§n my√∂hemmin.
+
+##L√§hteet
+[1] Wikpedia: 15-peli: [http://fi.wikipedia.org/wiki/15-peli](http://fi.wikipedia.org/wiki/15-peli)
+
+[2] wikiHow: How to Solve a Fifteen Puzzle: [http://www.wikihow.com/Solve-a-Fifteen-Puzzle](http://www.wikihow.com/Solve-a-Fifteen-Puzzle)
+
+[3] Wikipedia: Iterative Deepening A*: [http://en.wikipedia.org/wiki/Iterative_deepening_A*](http://en.wikipedia.org/wiki/Iterative_deepening_A*)
+
+[4] Brian Boroski: Optimal 8/15-Puzzle Solver [http://www.brian-borowski.com/software/puzzle/](http://www.brian-borowski.com/software/puzzle/)
+
+[5] HeuristicWiki: Manhattan Distance [http://heuristicswiki.wikispaces.com/Manhattan+Distance](http://heuristicswiki.wikispaces.com/Manhattan+Distance)
+
+[6] HeuristicWiki: IDA* [http://heuristicswiki.wikispaces.com/IDA*](http://heuristicswiki.wikispaces.com/IDA*)
+
+[7] University of Washington: Iterative Deepening A* (IDA*) Search: Rough Algorithm from LISP [http://courses.cs.washington.edu/courses/cse415/06wi/notes/IDA.pdf](http://courses.cs.washington.edu/courses/cse415/06wi/notes/IDA.pdf)
