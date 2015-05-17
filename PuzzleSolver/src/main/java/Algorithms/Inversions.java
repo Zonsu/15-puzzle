@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataStructures;
+package Algorithms;
 
 /**
  *
- * @author johanna
+ * @author Johanna
  */
-public class TemporaryStack {
+public class Inversions {
     
 }
