@@ -15,13 +15,15 @@ Ongelmana on pystyä ratkaisemaan 15-peli mahdollisimman vähillä siirroilla, s
 >"Inversioksi lasketaan jokainen kahden numero­laatan pari, jossa suurempi luku on ennen pienempää. Mikäli tyhjä ruutu on alimmalla rivillä, asetelma on ratkaistavissa, jos ja vain jos inversioiden lukumäärä on parillinen" [1]
 
 * [Iterative Deepening A* (IDA*) -algotritmi](http://en.wikipedia.org/wiki/Iterative_deepening_A*) [3][4]
-
 * [Manhattan Distance](http://heuristicswiki.wikispaces.com/Manhattan+Distance)
+* Heapsort
 
 **Tietorakenteet:**
 
 * Lista
 * PrirorityQueue
+* Keko
+* Binäärihakupuu
 
 Inversioiden laskemisella voimme tunnistaa pelilaudan, joka ei ole ratkaistavissa. IDA* on polunhaku -algoritmi, jolla pyritään löytämään numeron reitti sille määrättyyn ruutuun mahdollisimman vähillä siirroilla. Algoritmin parina käytetään "Manhattan Distance" heuristiikkaa, jolla pystytään määrittämään lyhyin matka kahden ruudun välillä ja määrittämään siirtojen "hintaa".[5][6] Muita heuristiikkoja tullaan mahdollisesti tarkastelemaan ja vertailemaan.
 
@@ -32,8 +34,12 @@ Ohjelmalle voidaan antaa syötteenä pelilauta joka halutaan ratkaista. Sitä vo
 
 ##Aika- ja tilavaativuudet
 
+**Heapsort** Aika: O(nlog(n))
+
+**Keko** Aika kaikille operaatioille: O(logn) Tila: O(n)
+
 **IDA*** 
-Tila: O(1) Aika: Exp [7]
+Aika: Exp [7] Tila: O(1) 
 
 Täydennetään myöhemmin.
 
