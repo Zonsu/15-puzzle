@@ -1,5 +1,5 @@
 #15-puzzle solver määrittelydokumentti
->
+
 ##Ongelma
 [15-peli](http://fi.wikipedia.org/wiki/15-peli)
 
