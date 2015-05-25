@@ -16,7 +16,7 @@ Toteutin tällä viikolla ohjelmaan 15-puzzle pelin, johon voidaan syöttää pe
 
 Suurin välähdys tuli pelilaudan havainnollistamisen kanssa. Aivot olivat pitkään solmussa näinkin yksinkertaisen asian kanssa. Opin kuitenkin (taas kerran) että tekemällä ja kokeilemalla tulee niitä oivalluksia. Opin myös kuinka yksinkertainen toteutustapa palkitsee kun oman koodin ja ajattelutavan ymmärtämiseen ei tarvitse käyttää aikaa ja voi sen sijaan keskittyä loogisten ongelmien ratkaisemiseen.
 
-Opin myös että jumissa ollessa kannattaa pyytää asiasta jonkun kanssa. Vaikka saisikin myös huonoja neuvoja, ajatusten pallottelu vie asiaa eteenpäin.
+Opin myös että jumissa ollessa kannattaa keskustella asiasta jonkun kanssa. Vaikka saisikin myös huonoja neuvoja, ajatusten pallottelu vie asiaa eteenpäin.
 
 ####Epäselvyyksiä:
 
