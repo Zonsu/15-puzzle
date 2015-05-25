@@ -1,19 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package PuzzleSolver;
 
+import UI.Game;
+
 /**
+ * Pääluokka. Tällä hetkellä mahdollisuus testata pelin toimintaa käsin.
  *
  * @author johanna
  */
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello");
-    }
+        Game game = new Game();
+        game.play();
 
+    }
 
 }
