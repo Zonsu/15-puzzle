@@ -47,6 +47,7 @@ public class UIFunctions {
             }
             System.out.println("");
         }
+        System.out.println("");
 
     }
 

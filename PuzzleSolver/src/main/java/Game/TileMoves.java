@@ -6,6 +6,8 @@
 package Game;
 
 /**
+ * Luokka kovasti kesken ja vaatii siistimistä ja abstraktia luokkaa. Tehty
+ * rekursiota ajatellen.
  *
  * @author Johanna
  */
@@ -43,8 +45,6 @@ public class TileMoves {
         }
         return false;
     }
-    
-    
 
     public static Board moveUp(int index, Board board) {
         int[] tiles = board.getBoard();
