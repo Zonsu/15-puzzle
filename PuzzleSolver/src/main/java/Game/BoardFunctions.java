@@ -150,31 +150,39 @@ public class BoardFunctions {
     //            System.out.println("Ei voi siirtää!");
     //        }
     //    }
-    //    public void moveUp(int index) {
-    //        if (index >= 4 && tiles[index - 4] == 0) {
-    //            tiles[index - 4] = tiles[index];
-    //            tiles[index] = 0;
-    //        }
-    //    }
-    //
-    //    public void moveDown(int index) {
-    //        if (index <= 11 && tiles[index + 4] == 0) {
-    //            tiles[index + 4] = tiles[index];
-    //            tiles[index] = 0;
-    //        }
-    //    }
-    //
-    //    public void moveLeft(int index) {
-    //        if (index % 4 != 0 && tiles[index - 1] == 0) {
-    //            tiles[index - 1] = tiles[index];
-    //            tiles[index] = 0;
-    //        }
-    //    }
-    //
-    //    public void moveRight(int index) {
-    //        if (index % 4 != 3 && tiles[index + 1] == 0) {
-    //            tiles[index + 1] = tiles[index];
-    //            tiles[index] = 0;
-    //        }
-    //    }
+//        public static Board moveUp(int index, Board board) {
+//            int[] tiles = board.getBoard();
+//            if (index >= 4 && tiles[index - 4] == 0) {
+//                tiles[index - 4] = tiles[index];
+//                tiles[index] = 0;
+//            }
+//            return new Board(tiles);
+//        }
+//    
+//        public static Board moveDown(int index, Board board) {
+//            int[] tiles = board.getBoard();
+//            if (index <= 11 && tiles[index + 4] == 0) {
+//                tiles[index + 4] = tiles[index];
+//                tiles[index] = 0;
+//            }
+//            return new Board(tiles);
+//        }
+//    
+//        public static Board moveLeft(int index, Board board) {
+//            int[] tiles = board.getBoard();
+//            if (index % 4 != 0 && tiles[index - 1] == 0) {
+//                tiles[index - 1] = tiles[index];
+//                tiles[index] = 0;
+//            }
+//            return new Board(tiles);
+//        }
+//    
+//        public static Board moveRight(int index, Board board) {
+//            int[] tiles = board.getBoard();
+//            if (index % 4 != 3 && tiles[index + 1] == 0) {
+//                tiles[index + 1] = tiles[index];
+//                tiles[index] = 0;
+//            }
+//            return new Board(tiles);
+//        }
 }

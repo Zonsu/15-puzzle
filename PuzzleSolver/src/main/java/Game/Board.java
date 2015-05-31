@@ -1,6 +1,6 @@
 package Game;
 
-import UI.Game;
+import UI.GameUI;
 
 /**
  * <code>Board</code> simuloi pelilautaa. 16 Ruutua joihin sijoitetaan numerot
@@ -54,12 +54,13 @@ public class Board {
     @Override
     public int hashCode() {
         int hash = 3;
+        hash = 79 * hash + Arrays.hashCode(this.tiles);
         return hash;
     }
 
     /**
      * Tarkastetaan ovatko kaksi lautaa samat.
-     * 
+     *
      * @param obj verrattava lauta
      * @return true jos lauat ovat samat, muuten false
      */

@@ -7,13 +7,13 @@ import static AI.SolvabilityCheck.*;
 import java.util.Scanner;
 
 /**
- * Luokka <code>Game</code> on rakennettu pelilaudan simuloinnin testaamiseen
+ * Luokka <code>GameUI</code> on rakennettu pelilaudan simuloinnin testaamiseen
  * harjoitustyön varhaisessa vaiheessa. Sillä on yksinkertaiset
  * komentorivikomennot ja se tunnistaa ratkaistun laudan. Validointeja ei
  * pahemmin löydy. Osa metodeista tullaan siirtämään erilleen tekoälyä sekä
  * varsinaista demoa varten.
  */
-public class Game {
+public class GameUI {
 
     private Board board;
     private Scanner scanner;
@@ -21,7 +21,7 @@ public class Game {
     /**
      * Konstruktori kutsuu metodia jolla luodaan maalipelilauta.
      */
-    public Game() {
+    public GameUI() {
 
     }
 

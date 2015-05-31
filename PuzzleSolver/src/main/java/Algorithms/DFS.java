@@ -5,7 +5,11 @@
  */
 package Algorithms;
 
+import DataStructures.TemporaryMemory;
+import DataStructures.TemporaryStack;
 import Game.Board;
+import static Game.BoardFunctions.*;
+import static Game.TileMoves.*;
 
 /**
  *
@@ -14,12 +18,47 @@ import Game.Board;
 public class DFS {
 
     private Board board;
+    private TemporaryMemory memory;
 
     public DFS(Board board) {
         this.board = board;
+        memory = new TemporaryMemory();
     }
-    
-    public void DFSSearch() {
+
+    public boolean DFSearch(Board board) {
+
+        if (checkVictory(board)) {
+            return false;
+        }
         
+        if (!memory.memoryContains(board)) {
+
+            for (int i = 0; i < 16; i++) {
+
+                memory.addToMemory(board);
+
+                if (getMoveUp(getNumberIndex(i, board), board)) {
+                    if (!DFSearch(moveUp(i, board))) {
+                        return false;
+                    }
+                } else if (getMoveLeft(getNumberIndex(i, board), board)) {
+                    if (!DFSearch(moveLeft(i, board))) {
+                        return false;
+                    }
+
+                } else if (getMoveRight(getNumberIndex(i, board), board)) {
+                    if (!DFSearch(moveRight(i, board))) {
+                        return false;
+                    }
+
+                } else if (getMoveDown(getNumberIndex(i, board), board)) {
+                    if (!DFSearch(moveDown(i, board))) {
+                        return false;
+                    }
+                }
+            }
+
+        }
+        return true;
     }
 }
