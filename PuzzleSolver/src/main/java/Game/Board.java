@@ -3,8 +3,8 @@ package Game;
 import UI.Game;
 
 /**
- * <code>Board</code> simuloi pelilautaa. 16 Ruutua joihin
- * sijoitetaan numerot 0-15 missä 0 on tyhjä ruutu.
+ * <code>Board</code> simuloi pelilautaa. 16 Ruutua joihin sijoitetaan numerot
+ * 0-15 missä 0 on tyhjä ruutu.
  *
  * @author Johanna
  */
@@ -27,8 +27,10 @@ public class Board {
      */
     public Board(int[] numbers) {
         tiles = new int[numberOfTiles];
-        this.tiles = numbers;
-        
+        for (int i = 0; i < numbers.length; i++) {
+            tiles[i] = numbers[i];
+        }
+
     }
 
     /**

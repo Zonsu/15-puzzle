@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AI;
 
 import Game.Board;
@@ -21,7 +17,7 @@ public class SolvabilityCheck {
      * Kertoo onko lauta ratkaistavissa vai ei.
      *
      * @param board
-     * @return
+     * @return true jos on ratkaistavissa, muuten false
      */
     public static boolean getSolvability(Board board) {
         if (!inversionsCheck(board)) {
