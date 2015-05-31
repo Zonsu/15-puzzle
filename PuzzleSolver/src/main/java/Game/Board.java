@@ -48,7 +48,14 @@ public class Board {
      * @return pelilaudan numerot järjestyksessä.
      */
     public int[] getBoard() {
-        return this.tiles;
+        
+        int[] newTiles = new int[16];
+        
+        for (int i = 0; i < numberOfTiles; i++) {
+            newTiles[i] = this.tiles[i];
+        }
+        
+        return newTiles;
     }
 
     @Override

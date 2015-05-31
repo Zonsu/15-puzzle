@@ -9,7 +9,8 @@ import Game.Board;
 import java.util.Stack;
 
 /**
- *
+ * Tilapäinen pino. Ei vielä käytössä.
+ * 
  * @author Johanna
  */
 public class TemporaryStack {

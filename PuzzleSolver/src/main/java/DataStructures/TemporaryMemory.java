@@ -6,26 +6,31 @@
 package DataStructures;
 
 import Game.Board;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- *
+ * Tilapäinen muisti syvyyshakua varten.
+ * 
  * @author Johanna
  */
 public class TemporaryMemory {
 
-    private HashSet<Board> set;
+//    private HashSet<Board> set;
+    private ArrayList<Board> list;
 
     public TemporaryMemory() {
-        set = new HashSet();
+//        set = new HashSet();
+        list = new ArrayList();
     }
     
     public void addToMemory(Board board) {
-        set.add(board);
+//        set.add(board);
+        list.add(board);
     }
     
     public boolean memoryContains(Board board) {
-        return set.contains(board);
+        return list.contains(board);
     }
 
 }

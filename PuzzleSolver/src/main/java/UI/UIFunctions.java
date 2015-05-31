@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class UIFunctions {
 
-    private static int[] feedNumbers() {
+    public static int[] feedNumbers() {
         Scanner scanner = new Scanner(System.in);
         int[] numbers = new int[16];
 

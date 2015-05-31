@@ -2,6 +2,7 @@
 package PuzzleSolver;
 
 import UI.GameUI;
+import UI.SolverUI;
 
 /**
  * Pääluokka. Tällä hetkellä mahdollisuus testata pelin toimintaa käsin.
@@ -11,8 +12,12 @@ import UI.GameUI;
 public class Main {
 
     public static void main(String[] args) {
-        GameUI game = new GameUI();
-        game.play();
+        
+        SolverUI solver = new SolverUI();
+        solver.play();
+        
+//        GameUI game = new GameUI();
+//        game.play();
 
     }
 
