@@ -9,6 +9,7 @@ import UI.Game;
  * @author Johanna
  */
 import Game.BoardFunctions.*;
+import java.util.Arrays;
 
 public class Board {
 
@@ -30,7 +31,6 @@ public class Board {
         for (int i = 0; i < numbers.length; i++) {
             tiles[i] = numbers[i];
         }
-
     }
 
     /**
@@ -49,6 +49,37 @@ public class Board {
      */
     public int[] getBoard() {
         return this.tiles;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    /**
+     * Tarkastetaan ovatko kaksi lautaa samat.
+     * 
+     * @param obj verrattava lauta
+     * @return true jos lauat ovat samat, muuten false
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Board board2 = (Board) obj;
+
+        int[] tiles2 = board2.getBoard();
+        for (int i = 0; i < tiles2.length; i++) {
+            if (tiles[i] != tiles2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

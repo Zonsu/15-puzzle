@@ -3,12 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataStructures;
+package Algorithms;
+
+import Game.Board;
 
 /**
  *
  * @author Johanna
  */
-public class TemporaryPriorityQueue {
+public class DFS {
+
+    private Board board;
+
+    public DFS(Board board) {
+        this.board = board;
+    }
     
+    public void DFSSearch() {
+        
+    }
 }
