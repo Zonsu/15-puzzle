@@ -1,13 +1,17 @@
 package UI;
 
 import Game.Board;
+
+import static Game.BoardFunctions.*;
+import static AI.SolvabilityCheck.*;
 import java.util.Scanner;
 
 /**
  * Luokka <code>Game</code> on rakennettu pelilaudan simuloinnin testaamiseen
  * harjoitustyön varhaisessa vaiheessa. Sillä on yksinkertaiset
  * komentorivikomennot ja se tunnistaa ratkaistun laudan. Validointeja ei
- * pahemmin löydy. Osa metodeista tullaan siirtämään erilleen tekoälyä sekä varsinaista demoa varten.
+ * pahemmin löydy. Osa metodeista tullaan siirtämään erilleen tekoälyä sekä
+ * varsinaista demoa varten.
  */
 public class Game {
 
@@ -18,43 +22,49 @@ public class Game {
      * Konstruktori kutsuu metodia jolla luodaan maalipelilauta.
      */
     public Game() {
-       
+
     }
 
     /**
      * Metodi on puhtaasti käyttäjätestausta varten. Metodi pyytää aluksi
      * käyttäjältä pelilaudan. Se käsittelee käyttäjän antamat siirrot ja
      * tulostaa pelilaudan tilanteen. Peli päättyy käyttäjän antaessa syötteen
-     * lopeta tai pelin ratkettua.
+     * lopeta, pelin ratkettua tai jos pelilauta ei ole ratkaistavissa.
      */
     public void play() {
 
         scanner = new Scanner(System.in);
-        feedNumbers();
+        board = new Board(feedNumbers());
 
-        while (true) {
-
+        if (!getSolvability(board)) {
             printBoard();
+            System.out.println("Pelilauta ei ole ratkaistavissa :(");
+        } else {
 
-            if (board.checkVictory()) {
-                System.out.println("Voitto!");
-                break;
-            }
+            while (true) {
 
-            System.out.println("Kirjoita numero jonka haluat siirtää [1-15]. Tyhjä ruutu on 0. 'Lopeta' lopettaa");
-            String input = scanner.nextLine();
+                printBoard();
 
-            if (input.equals("lopeta") || input.equals("Lopeta")) {
-                break;
+                if (checkVictory(board)) {
+                    System.out.println("Voitto!");
+                    break;
+                }
+
+                System.out.println("Kirjoita numero jonka haluat siirtää [1-15]. Tyhjä ruutu on 0. 'Lopeta' lopettaa");
+                String input = scanner.nextLine();
+
+                if (input.equals("lopeta") || input.equals("Lopeta")) {
+                    break;
+                }
+                int num = Integer.parseInt(input);
+                if (num > 0 && num < 16) {
+                    System.out.println("Yritetään siirtää " + num);
+                    board = moveTile(num, board);
+                } else {
+                    System.out.println("Vääränlainen syöte!");
+                }
+                System.out.println("");
             }
-            int num = Integer.parseInt(input);
-            if (num > 0 && num < 16) {
-                System.out.println("Yritetään siirtää " + num);
-                board.moveTile(num);
-            } else {
-                System.out.println("Vääränlainen syöte!");
-            }
-            System.out.println("");
         }
     }
 
@@ -62,7 +72,7 @@ public class Game {
      * Metodi pyytää käyttäjältä 16 numeroa joista se muodostaa uuden
      * pelilaudan. Toistaiseksi validoidaan ainoastaan lukujen määrä.
      */
-    private void feedNumbers() {
+    private int[] feedNumbers() {
         int[] numbers = new int[16];
         while (true) {
             System.out.println("Anna rimpsuna numerot [0-15] joista haluat muodostaa pelilaudan. Erottele välilyönnillä: ");
@@ -74,14 +84,13 @@ public class Game {
                 for (int i = 0; i < 16; i++) {
                     numbers[i] = Integer.parseInt(list[i]);
                 }
-                board = new Board(numbers);
                 break;
             } else {
                 System.out.println("Pieleen meni :<");
             }
         }
+        return numbers;
     }
-
 
     /**
      * Tulostetaan pelilauta käyttäjän tarkasteltavaksi. Listasta tulostetaan

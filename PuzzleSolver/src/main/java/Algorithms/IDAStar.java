@@ -9,6 +9,6 @@ package Algorithms;
  *
  * @author Johanna
  */
-public class IDA {
+public class IDAStar {
     
 }

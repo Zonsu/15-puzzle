@@ -1,28 +1,21 @@
 package Game;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static Game.BoardFunctions.*;
 
 /**
  *
  * @author Johanna
  */
-public class BoardTest {
+public class BoardFunctionsTest {
 
     private Board testBoard;
     private int[] testGoal;
     private int[] testNumbers;
 
-    public BoardTest() {
+    public BoardFunctionsTest() {
     }
 
     @Before
@@ -49,46 +42,46 @@ public class BoardTest {
 
     @Test
     public void returnsNumberInFirstIndex() {
-        assertEquals(testBoard.getTile(0), 15);
+        assertEquals(getTile(0, testBoard), 15);
     }
 
     @Test
     public void returnsNumberInLastIndex() {
-        assertEquals(testBoard.getTile(15), 0);
+        assertEquals(getTile(15, testBoard), 0);
     }
 
     @Test
     public void canBeMonvedIfNextToAnEmptySlot() {
-        testBoard.moveTile(1);
-        assertEquals(testBoard.getNumberIndex(1), 15);
+        testBoard = moveTile(1, testBoard);
+        assertEquals(getNumberIndex(1, testBoard), 15);
     }
 
     @Test
     public void canBeMovedIfNextToAnEmptySlot2() {
-        testBoard.moveTile(4);
-        assertEquals(testBoard.getNumberIndex(4), 15);
+        testBoard = moveTile(4, testBoard);
+        assertEquals(getNumberIndex(4, testBoard), 15);
 
     }
 
     @Test
     public void cannotBeMovedIfNotNextToAnEmptySlot() {
-        testBoard.moveTile(3);
-        assertEquals(testBoard.getNumberIndex(3), 12);
+        testBoard = moveTile(3, testBoard);
+        assertEquals(getNumberIndex(3, testBoard), 12);
     }
 
     @Test
     public void cannotBeMovedIfNotNextToAnEmptySlot2() {
-        testBoard.moveTile(12);
-        assertEquals(testBoard.getNumberIndex(12), 3);
+        testBoard = moveTile(12, testBoard);
+        assertEquals(getNumberIndex(12, testBoard), 3);
     }
 
     @Test
     public void checksVictory() {
-        assertEquals(testBoard.checkVictory(), false);
+        assertEquals(checkVictory(testBoard), false);
     }
     @Test
     public void checksVictoryBoard() {
         testBoard = new Board(testGoal);
-        assertEquals(testBoard.checkVictory(), true);
+        assertEquals(checkVictory(testBoard), true);
     }
 }
